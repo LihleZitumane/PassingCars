@@ -1,0 +1,44 @@
+using System;
+
+namespace PassingCars
+{
+    class Program
+    {
+
+    static int solution(int[] A)
+    {
+      bool westfound = false;
+      int k = 0;
+      int count = 0;
+
+      for (int i = 0; i < A.Length; i++)
+      {
+        if (A[i] == 0)
+          westfound = true;
+
+        if (A[i] == 1)
+        {
+          if (westfound)
+            westfound = false;
+
+          count += k * 1;
+        }
+
+        if (westfound)
+          k += 1;
+      }
+
+      if ((Math.Abs(count) > 1000000000))
+        count = -1;
+          
+      return count;
+    }
+        static void Main(string[] args)
+        {
+           // Console.WriteLine("Hello World!");
+      Console.WriteLine(solution(new int[] { 0, 1, 0, 1, 0, 1 }));
+      Console.WriteLine(1248768710 > 1000000000);
+      Console.ReadLine();
+        }
+    }
+}
